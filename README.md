@@ -1,6 +1,6 @@
 # Sapper TailwindCSS Starter
 
-This pulls together Sapper, Svelte 3, Tailwind CSS, and PurgeCSS to create a simple starter kit for the most performant apps ever.
+This pulls together Sapper, Svelte 3, Tailwind CSS, and PurgeCSS to create a simple starter kit for the sveltest apps ever.
 
 ## Development
 

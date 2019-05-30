@@ -2,4 +2,8 @@ import dotenv from 'dotenv';
 
 const result = dotenv.config();
 
-export default result;
+if (result.error) {
+  throw result.error;
+}
+
+export default result.parsed;
