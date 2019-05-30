@@ -11,7 +11,8 @@
 		"build": "sapper build --legacy",
 		"export": "sapper export --legacy",
 		"start": "node __sapper__/build",
-		"all": "npm run build && npm run start"
+		"all": "npm run build && npm run start",
+		"precommit": "node -v && lint-staged"
 	},
 	"husky": {
 		"hooks": {
@@ -19,11 +20,7 @@
 		}
 	},
 	"lint-staged": {
-		"*.{svelte,js}": [
-			"eslint --fix",
-			"git add"
-		],
-		"*.md": [
+		"*.{svelte,js,md}": [
 			"prettier --write",
 			"git add"
 		]
