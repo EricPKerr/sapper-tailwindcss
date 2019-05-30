@@ -1,0 +1,16 @@
+# Sapper TailwindCSS Starter
+
+This pulls together Sapper, Svelte 3, Tailwind CSS, and PurgeCSS to create a simple starter kit for the most performant apps ever.
+
+## Development
+
+To clone it and get started:
+
+```bash
+git clone https://github.com:EricPKerr/sapper-tailwindcss-starter.git
+cd sapper-tailwindcss-starter
+npm install # or yarn!
+npm run dev
+```
+
+Open up [localhost:3000](http://localhost:3000).
