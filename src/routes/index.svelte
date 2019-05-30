@@ -20,5 +20,5 @@
 </svelte:head>
 
 {#each users as user}
-  <ProfileCard user='{user}' />
+  <ProfileCard {user} />
 {/each}

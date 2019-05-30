@@ -1,8 +1,0 @@
-.nav-item {
-  @apply block text-gray-500 pl-0 py-5 mx-4 border-l-0 border-transparent no-underline;
-}
-
-.nav-item:hover, .nav-item-selected {
-  @apply no-underline text-dbnomics-green-lighter border-dbnomics-green-lighter;
-  box-shadow: 0 -3px 0 0 inset;
-}

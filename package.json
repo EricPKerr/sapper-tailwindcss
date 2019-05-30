@@ -20,12 +20,12 @@
     }
   },
   "lint-staged": {
+    "*.{js,svelte}": [
+      "eslint"
+    ],
     "*.{ts,tsx,js,jsx,json,scss,md,svelte}": [
       "prettier --write",
       "git add"
-    ],
-    "*.{js,svelte}": [
-      "eslint"
     ]
   },
   "dependencies": {
@@ -54,6 +54,7 @@
     "postcss-fail-on-warn": "^0.1.0",
     "postcss-import": "^12.0.1",
     "prettier": "^1.17.1",
+    "prettier-plugin-svelte": "^0.6.0",
     "ramda": "^0.26.1",
     "rollup": "^1.12.5",
     "rollup-plugin-babel": "^4.3.2",

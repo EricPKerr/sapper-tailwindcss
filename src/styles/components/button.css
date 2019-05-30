@@ -7,21 +7,9 @@
 }
 
 .btn-primary {
-  @apply bg-dbnomics-green-dark text-white;
+  @apply blue-700 text-white;
 }
 
 .btn-primary:hover {
-  @apply bg-dbnomics-green;
-}
-
-.btn-outline {
-  @apply bg-transparent text-dbnomics-green-lighter font-normal border border-dbnomics-green;
-}
-
-.btn-outline:hover:enabled {
-  @apply border-transparent bg-dbnomics-green text-gray-900;
-}
-
-.btn-link {
-  @apply p-0 text-dbnomics-green-lighter font-normal underline;
+  @apply blue-800;
 }
