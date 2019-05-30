@@ -10,6 +10,7 @@ To clone it and get started:
 git clone https://github.com:EricPKerr/sapper-tailwindcss-starter.git
 cd sapper-tailwindcss-starter
 npm install # or yarn!
+touch .env
 npm run dev
 ```
 
