@@ -23,7 +23,7 @@
     "*.{js,svelte}": [
       "eslint"
     ],
-    "*.{ts,tsx,js,jsx,json,scss,md,svelte}": [
+    "*.{ts,tsx,js,jsx,json,css,md,svelte}": [
       "prettier --write",
       "git add"
     ]
