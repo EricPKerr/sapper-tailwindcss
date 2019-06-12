@@ -1,9 +1,11 @@
 <script>
-	import { stores } from "@sapper/app"
+  import { stores } from '@sapper/app';
 
-	const { preloading } = stores()
+  const { preloading } = stores();
 
-	export let segment
+  console.log('Preloading', preloading);
+
+  export let segment;
 </script>
 
 <slot />

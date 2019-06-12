@@ -1,10 +1,10 @@
 {
-  "name": "sapper-tailwindcss-starter",
+  "name": "sapper-tailwindcss",
   "description": "",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/EricPKerr/sapper-tailwindcss"
   },
   "scripts": {
     "dev": "sapper dev",
