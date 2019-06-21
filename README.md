@@ -7,10 +7,12 @@ This pulls together Sapper, Svelte 3, Tailwind CSS, and PurgeCSS to create a sim
 To clone it and get started:
 
 ```bash
-git clone https://github.com:EricPKerr/sapper-tailwindcss-starter.git
-cd sapper-tailwindcss-starter
+git clone https://github.com:EricPKerr/sapper-tailwindcss.git
+cd sapper-tailwindcss
 npm install # or yarn!
+
 touch .env
+
 npm run dev
 ```
 
