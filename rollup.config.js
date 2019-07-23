@@ -1,10 +1,10 @@
-import resolve from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
-import commonjs from 'rollup-plugin-commonjs';
-import svelte from 'rollup-plugin-svelte';
 import babel from 'rollup-plugin-babel';
+import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
+import resolve from 'rollup-plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
+import replace from 'rollup-plugin-replace';
+import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
@@ -12,6 +12,13 @@ import pkg from './package.json';
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+
+const onwarn = (warning, onwarn) =>
+  (warning.code === 'CIRCULAR_DEPENDENCY' &&
+    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  onwarn(warning);
+const dedupe = importee =>
+  importee === 'svelte' || importee.startsWith('svelte/');
 
 const purgecss = require('@fullhuman/postcss-purgecss')({
   // Specify the paths to all of the template files in your project
@@ -35,7 +42,10 @@ export default {
         hydratable: true,
         emitCss: true
       }),
-      resolve(),
+      resolve({
+        browser: true,
+        dedupe
+      }),
       commonjs(),
       json(),
 
@@ -67,7 +77,8 @@ export default {
         terser({
           module: true
         })
-    ]
+    ],
+    onwarn
   },
 
   server: {
@@ -97,14 +108,17 @@ export default {
             })
         ].filter(Boolean)
       }),
-      resolve(),
+      resolve({
+        dedupe
+      }),
       commonjs(),
       json()
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules ||
         Object.keys(process.binding('natives'))
-    )
+    ),
+    onwarn
   },
 
   serviceworker: {
@@ -118,6 +132,7 @@ export default {
       }),
       commonjs(),
       !dev && terser()
-    ]
+    ],
+    onwarn
   }
 };
