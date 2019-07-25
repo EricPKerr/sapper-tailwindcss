@@ -13,8 +13,12 @@ const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
-const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/');
+const onwarn = (warning, onwarn) =>
+  (warning.code === 'CIRCULAR_DEPENDENCY' &&
+    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  onwarn(warning);
+const dedupe = importee =>
+  importee === 'svelte' || importee.startsWith('svelte/');
 
 const purgecss = require('@fullhuman/postcss-purgecss')({
   // Specify the paths to all of the template files in your project
@@ -39,9 +43,9 @@ export default {
         emitCss: true
       }),
       resolve({
-				browser: true,
-				dedupe
-			}),
+        browser: true,
+        dedupe
+      }),
       commonjs(),
       json(),
 
@@ -105,8 +109,8 @@ export default {
         ].filter(Boolean)
       }),
       resolve({
-				dedupe
-			}),
+        dedupe
+      }),
       commonjs(),
       json()
     ],
