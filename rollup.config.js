@@ -8,6 +8,7 @@ import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import sveltePreprocess from 'svelte-preprocess';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -29,6 +30,10 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 });
 
+const preprocess = sveltePreprocess({
+  postcss: true
+});
+
 export default {
   client: {
     input: config.client.input(),
@@ -39,6 +44,7 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode)
       }),
       svelte({
+        preprocess,
         dev,
         hydratable: true,
         emitCss: true
@@ -91,11 +97,12 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode)
       }),
       svelte({
+        preprocess,
         generate: 'ssr',
         dev
       }),
       postcss({
-        extract: './static/global.css',
+        extract: './static/tailwind.css',
         plugins: [
           require('postcss-import'),
           require('tailwindcss'), // See tailwind.config.js

@@ -1,7 +1,7 @@
 {
   "name": "sapper-tailwindcss",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/EricPKerr/sapper-tailwindcss"
@@ -11,7 +11,7 @@
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "all": "npm run build && npm run start",
+    "all": "yarn build && yarn start",
     "precommit": "node -v && lint-staged"
   },
   "husky": {
@@ -31,8 +31,12 @@
   "dependencies": {
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
+    "less": "^3.10.3",
     "polka": "^0.5.2",
-    "sirv": "^0.4.2"
+    "postcss": "^7.0.25",
+    "postcss-load-config": "^2.1.0",
+    "sirv": "^0.4.2",
+    "svelte-preprocess": "^3.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",

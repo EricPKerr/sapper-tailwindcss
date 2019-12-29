@@ -3,5 +3,6 @@ node_modules
 yarn-error.log
 /__sapper__
 .vscode
-/static/global.css
 .env
+yarn.lock
+static/tailwind.css
