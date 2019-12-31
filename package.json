@@ -12,6 +12,7 @@
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
     "all": "npm run build && npm run start",
+    "update": "ncu -u && npm install && git add package.json package-lock.json && git commit -m 'Update package.json'",
     "precommit": "node -v && lint-staged"
   },
   "husky": {
